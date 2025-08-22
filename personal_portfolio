@@ -1,174 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sharath | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    html { scroll-behavior: smooth; }
-    body {
-        background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
-        color: #fff; overflow-x: hidden;
-    }
-    header { text-align: center; padding: 4rem 0 2rem; z-index: 2; }
-    header h1 { font-size: 3.5rem; font-weight: 700; }
-    header p.typing {
-        font-size: 1.5rem; margin-top: 1rem;
-        border-right: 3px solid #ffdd00;
-        white-space: nowrap; overflow: hidden;
-        animation: typing 4s steps(20, end), blink .8s infinite;
-    }
-    @keyframes typing { from { width: 0; } to { width: 100%; } }
-    @keyframes blink { 50% { border-color: transparent; } }
-
-    nav {
-        display: flex; justify-content: center;
-        background: rgba(255,255,255,0.1); border-radius: 30px;
-        width: fit-content; margin: 1rem auto; padding: 0.5rem 1rem;
-        backdrop-filter: blur(10px);
-    }
-    nav a {
-        color: #fff; padding: 0.8rem 1.2rem; text-decoration: none;
-        font-weight: bold; transition: 0.3s; border-radius: 20px;
-    }
-    nav a:hover { background: #ffdd00; color: #222; }
-
-    .container { width: 90%; max-width: 1100px; margin: 3rem auto; }
-    section { margin-bottom: 3rem; text-align: center; opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1s ease; }
-    section.visible { opacity: 1; transform: translateY(0); }
-    h2 { font-size: 2.5rem; margin-bottom: 1.2rem; color: #ffdd00; }
-
-    .about img {
-        width: 200px; height: 200px; border-radius: 50%; border: 4px solid #fff;
-        margin-bottom: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-    }
-    .skills ul {
-        display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; list-style: none;
-    }
-    .skills li {
-        background: #fff; color: #0f2027; padding: 0.6rem 1.2rem; border-radius: 25px;
-        font-weight: bold; font-size: 1rem; transition: transform 0.3s ease;
-    }
-    .skills li:hover { transform: scale(1.15); background: #ffdd00; }
-
-    .card {
-        background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease;
-    }
-    .card:hover { transform: translateY(-8px); }
-
-    .contact a {
-        display: inline-block; background: #ffdd00; color: #222; padding: 0.7rem 1.4rem;
-        border-radius: 30px; margin: 0.5rem; text-decoration: none; font-weight: bold;
-        transition: background 0.3s ease;
-    }
-    .contact a:hover { background: #fff; }
-
-    /* Floating Social Icons */
-    .social-icons {
-        position: fixed; top: 50%; left: 15px; transform: translateY(-50%);
-        display: flex; flex-direction: column; gap: 15px; z-index: 100;
-    }
-    .social-icons a {
-        width: 40px; height: 40px; background: #fff; color: #0f2027; display: flex; align-items: center; justify-content: center;
-        border-radius: 50%; text-decoration: none; font-size: 1.2rem; transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .social-icons a:hover { transform: scale(1.2); background: #ffdd00; }
-
-    .toggle-btn {
-        position: fixed; bottom: 20px; right: 20px; background: #ffdd00; color: #222;
-        padding: 15px; border-radius: 50%; font-size: 1.5rem; cursor: pointer;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; }
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharath | Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { 
+            background: #0f2027;
+            background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 4rem 0 2rem;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            font-weight: 300;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 30px;
+            margin: 1rem auto;
+            width: fit-content;
+            padding: 0.5rem 1rem;
+            backdrop-filter: blur(12px);
+            z-index: 2;
+            position: relative;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 1.2rem;
+            font-weight: bold;
+            transition: 0.3s;
+            border-radius: 20px;
+        }
+        nav a:hover {
+            background: #ffdd00;
+            color: #222;
+        }
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 3rem auto;
+            position: relative;
+            z-index: 2;
+        }
+        section {
+            margin-bottom: 3rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: #ffdd00;
+        }
+        .about img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            margin-bottom: 1rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        .about p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.7;
+        }
+        .skills ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            gap: 15px;
+        }
+        .skills li {
+            background: #fff;
+            color: #0f2027;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .skills li:hover {
+            transform: scale(1.15);
+            background: #ffdd00;
+        }
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .contact a {
+            display: inline-block;
+            background: #ffdd00;
+            color: #222;
+            padding: 0.7rem 1.4rem;
+            border-radius: 30px;
+            margin: 0.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .contact a:hover {
+            background: #fff;
+        }
+        .toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ffdd00;
+            color: #222;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        /* Typing Animation */
+        .typing {
+            display: inline-block;
+            border-right: 3px solid #ffdd00;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(20, end), blink 0.8s infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        /* Background particles */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        @media(max-width: 768px) {
+            nav { flex-direction: column; }
+        }
+    </style>
 </head>
 <body>
-<div id="particles-js"></div>
+    <div id="particles-js"></div>
 
-<header>
-    <h1>Sharath</h1>
-    <p class="typing">Web Developer & Data Scientist</p>
-</header>
+    <header>
+        <h1>Sharath</h1>
+        <p class="typing">Web Developer & Data Scientist</p>
+    </header>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-</nav>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-<div class="container">
-    <section id="about" class="about">
-        <h2>About Me</h2>
-        <img src="C:\Users\SHARATH\Downloads\WhatsApp Image 2025-08-22 at 2.39.42 PM.jpeg" alt="Sharath Profile">
-        <p>Hello! I’m currently learning full-stack development at @NxtWave’s CCBP 4.0 Academy with a focus on modern 4.0 technologies. Passionate about coding challenges and hands-on projects. I’m also working as a Data Science intern @Gradtwin and looking for exciting job opportunities.</p>
-    </section>
+    <div class="container">
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <img src="C:\Users\SHARATH\Downloads\WhatsApp Image 2025-08-22 at 2.39.42 PM.jpeg" alt="Sharath Profile">
+            <p>Hello! I’m currently learning full-stack development at @NxtWave’s CCBP 4.0 Academy with a focus on modern 4.0 technologies. Passionate about coding challenges and hands-on projects. I’m also working as a Data Science intern @Gradtwin and looking for exciting job opportunities.</p>
+        </section>
 
-    <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Responsive Web Development</li>
-            <li>Data Science</li>
-            <li>Figma</li>
-            <li>Microsoft Power BI</li>
-            <li>Microsoft Excel</li>
-            <li>Java</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-        </ul>
-    </section>
+        <section id="skills" class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Responsive Web Development</li>
+                <li>Data Science</li>
+                <li>Figma</li>
+                <li>Microsoft Power BI</li>
+                <li>Microsoft Excel</li>
+                <li>Java</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+            </ul>
+        </section>
 
-    <section id="projects" class="projects">
-        <h2>Projects</h2>
-        <div class="card"><h3>Indian Tourism Website</h3><p>Developed a responsive tourism website showcasing destinations across India using HTML, CSS, and Bootstrap with SEO optimization.</p></div>
-        <div class="card"><h3>Restaurant Menu Online Webpage</h3><p>Created a responsive restaurant menu webpage with categorized dishes and a simple ordering system using HTML, CSS, and Bootstrap.</p></div>
-        <div class="card"><h3>Data Analysis Project</h3><p>Built a predictive machine learning model for forecasting machine failure times using advanced ML techniques and evaluated using MAE and MSE metrics.</p></div>
-    </section>
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
+            <div class="card">
+                <h3>Indian Tourism Website</h3>
+                <p>Developed a responsive tourism website showcasing destinations across India using HTML, CSS, and Bootstrap with SEO optimization.</p>
+            </div>
+            <div class="card">
+                <h3>Restaurant Menu Online Webpage</h3>
+                <p>Created a responsive restaurant menu webpage with categorized dishes and a simple ordering system using HTML, CSS, and Bootstrap.</p>
+            </div>
+            <div class="card">
+                <h3>Data Analysis Project</h3>
+                <p>Built a predictive machine learning model for forecasting machine failure times using advanced ML techniques and evaluated using MAE and MSE metrics.</p>
+            </div>
+        </section>
 
-    <section id="experience" class="experience">
-        <h2>Experience</h2>
-        <div class="card"><h3>Data Scientist Intern - Gradtwin</h3><p>Worked on data processing and predictive modeling projects, improving decision-making through analytics.</p></div>
-        <div class="card"><h3>App Developer Intern - TechnoHacks</h3><p>Contributed to Android app development, designed features, and collaborated with teams to deliver efficient mobile solutions.</p></div>
-    </section>
+        <section id="experience" class="experience">
+            <h2>Experience</h2>
+            <div class="card">
+                <h3>Data Scientist Intern - Gradtwin</h3>
+                <p>Worked on data processing and predictive modeling projects, improving decision-making through analytics.</p>
+            </div>
+            <div class="card">
+                <h3>App Developer Intern - TechnoHacks</h3>
+                <p>Contributed to Android app development, designed features, and collaborated with teams to deliver efficient mobile solutions.</p>
+            </div>
+        </section>
 
-    <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:sharath9790667715@gmail.com">sharath9790667715@gmail.com</a></p>
-        <p>Phone: <a href="tel:+919790667715">9790667715</a></p>
-        <a href="https://github.com/11sharath" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/sharath091104/" target="_blank">LinkedIn</a>
-    </section>
-</div>
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:sharath9790667715@gmail.com">sharath9790667715@gmail.com</a></p>
+            <p>Phone: <a href="tel:+919790667715">9790667715</a></p>
+            <a href="https://github.com/11sharath" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/sharath091104/" target="_blank">LinkedIn</a>
+        </section>
+    </div>
 
-<!-- Floating Social Icons -->
-<div class="social-icons">
-    <a href="https://github.com/11sharath" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/sharath091104/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="mailto:sharath9790667715@gmail.com"><i class="fas fa-envelope"></i></a>
-</div>
+    <button class="toggle-btn" onclick="document.body.classList.toggle('dark')">🌙</button>
 
-<button class="toggle-btn" onclick="document.body.classList.toggle('dark')">🌙</button>
+    <!-- Scripts for animations -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script>
+        // Particle background
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 },
+                size: { value: 3 },
+                move: { speed: 2 },
+                line_linked: { enable: true },
+                color: { value: '#ffffff' }
+            }
+        });
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script>
-    particlesJS('particles-js', {
-        particles: {
-            number: { value: 80 }, size: { value: 3 },
-            move: { speed: 2 }, line_linked: { enable: true }, color: { value: '#ffffff' }
-        }
-    });
-
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); }});
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
-</script>
+        // Scroll reveal animation
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        sections.forEach(section => observer.observe(section));
+    </script>
 </body>
 </html>
